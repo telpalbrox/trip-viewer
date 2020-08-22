@@ -34,7 +34,8 @@ module.exports.routes = {
   'GET /account/profile':    { action: 'account/view-edit-profile' },
 
   'GET /trips/upload':  { action: 'trips/view-upload-trip' },
-  'POST /api/v1/trips/upload-trip': { action: 'trips/upload-trip' },
+  'GET /trips': { action: 'trips/view-trips-overview' },
+  'GET /trips/:id': { action: 'trips/view-trip' },
 
 
   //  ╔╦╗╦╔═╗╔═╗  ╦═╗╔═╗╔╦╗╦╦═╗╔═╗╔═╗╔╦╗╔═╗   ┬   ╔╦╗╔═╗╦ ╦╔╗╔╦  ╔═╗╔═╗╔╦╗╔═╗
@@ -65,4 +66,7 @@ module.exports.routes = {
   'POST  /api/v1/entrance/update-password-and-login':    { action: 'entrance/update-password-and-login' },
   'POST  /api/v1/deliver-contact-form-message':          { action: 'deliver-contact-form-message' },
 
+  'GET /api/v1/trips/:id/coordinates': { action: 'trips/get-coordinates' },
+  'POST /api/v1/trips/upload-trip': { action: 'trips/upload-trip' },
+  'GET /api/v1/coordinates/:id/video-second': { action: 'coordinates/get-video-second' },
 };

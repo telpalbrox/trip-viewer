@@ -1,0 +1,10 @@
+<div id="trip" v-cloak>
+  <div class="container pt-5 pb-5">
+    <h1 class="mb-5"><%= trip.name %></h1>
+    <div class="mb-4" id="map" data-trip-id="<%= trip.id %>" data-latitude="<%= firstCoordinate.latitude %>" data-longitude="<%= firstCoordinate.longitude %>"></div>
+    <video id="video" :src="videoUrl" :class="[videoUrl === '' ? 'd-none' : '']" muted autoplay controls></video>
+  </div>
+</div>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

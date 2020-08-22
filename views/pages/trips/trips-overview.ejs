@@ -1,0 +1,15 @@
+<div id="trips-overview" v-cloak>
+  <div class="container pt-5 pb-5">
+    <% trips.forEach(function(trip){ %>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title"><%= trip.name %></h5>
+          <p class="card-text">Number of coordinates: <%= trip.coordinatesCount %></p>
+          <a href="/trips/<%= trip.id %>" class="card-link">View</a>
+          <a href="/trips/<%= trip.id %>" class="card-link text-danger">Remove</a>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>
