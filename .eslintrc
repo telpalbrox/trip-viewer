@@ -39,7 +39,9 @@
     "_": true,
 
     // Models:
-    "User": true
+    "User": true,
+    "Trip": false,
+    "Coordinate": false
     
     // …and any others.
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

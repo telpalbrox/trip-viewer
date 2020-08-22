@@ -1,0 +1,37 @@
+<div id="upload-trip" v-cloak>
+  <div class="container pt-5 pb-5">
+    <h1>Upload trip</h1>
+    <hr/>
+    <ajax-form action="uploadTrip" :syncing.sync="syncing" :cloud-error.sync="cloudError" :form-data="formData" :form-rules="formRules" :form-errors.sync="formErrors" @submitted="submittedForm()">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input class="form-control" id="name" name="name" type="text"  :class="[formErrors.name ? 'is-invalid' : '']" v-model.trim="formData.name" placeholder="Name of the trip" focus-first>
+            <div class="invalid-feedback" v-if="formErrors.name">Name is not valid.</div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="file">Example file input</label>
+            <input type="file" name="file" class="form-control-file" :class="[formErrors.file || invalidFile ? 'is-invalid' : '']" id="file" @change="previewFile">
+            <div class="invalid-feedback" v-if="formErrors.file">File is not valid.</div>
+            <div class="invalid-feedback" v-if="invalidFile">Invalid file, cannot be processed in the server.</div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <cloud-error v-if="cloudError && !invalidFile"></cloud-error>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group text-right">
+            <a class="btn btn-outline-info" href="/account">Cancel</a>
+            <ajax-button type="submit" :syncing="syncing" class="btn btn-dark">Save changes</ajax-button>
+          </div>
+        </div>
+      </div>
+    </ajax-form>
+  </div>
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

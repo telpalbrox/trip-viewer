@@ -167,5 +167,8 @@ without necessarily having a billing card.`
 
   },
 
-
+  trips: {
+    collection: 'trip',
+    via: 'user'
+  },
 };
